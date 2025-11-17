@@ -18,7 +18,7 @@ RUN pecl install xdebug \
 COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 # Copia aplicação
-COPY ./src /var/www/html/
+COPY ./web /var/www/html/
 
 # Permissões
 RUN chown -R www-data:www-data /var/www/html

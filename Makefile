@@ -5,11 +5,11 @@ DB_PASS=root
 DB_NAME=sistema_bancario
 
 # Caminho para os arquivos SQL
-PROCEDURE=./sql/procedures.sql
-SCHEMA=./sql/schema.sql
-SCHEMADROP=./sql/schema_drop.sql
-INSERTS=./sql/inserts.sql
-PROCEDURES=./sql/procedures.sql
+PROCEDURESDROP=./MySQL/procedure_drop.sql
+SCHEMA=./MySQL/schema.sql
+SCHEMADROP=./MySQL/schema_drop.sql
+INSERTS=./MySQL/inserts.sql
+PROCEDURES=./MySQL/procedures.sql
 
 # Apaga e recria apenas o schema
 
@@ -33,6 +33,9 @@ inserts:
 create-procedures:
 	docker exec -i $(CONTAINER_NAME) mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) < $(PROCEDURES)
 
+# Apaga procedures
+drop-procedures:
+	docker exec -i $(CONTAINER_NAME) mysql -u $(DB_USER) -p$(DB_PASS) $(DB_NAME) < $(PROCEDURESDROP)
 # Apaga e recria o schema e popula com dados iniciais
 reset-db:
 	docker exec -i $(CONTAINER_NAME) mysql -u $(DB_USER) -p$(DB_PASS) < $(SCHEMA)
