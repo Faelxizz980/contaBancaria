@@ -1,6 +1,7 @@
 
 <?php
 
+
     abstract class Conta{
     protected int $id;
     protected Titular $titular;
@@ -8,12 +9,8 @@
     protected float $limite;
 
 
-    public function Conta(int $id, Titular $titular, float $saldo, float $limite)
-     {
-        $this->setId($id);
-        $this->titular = $titular;
-        $this->saldo = $saldo;
-        $this->limite = $limite;
+    public __constructor(){
+
     }
 
     public function setId(int $id): void

@@ -61,7 +61,7 @@
         }
 
         #[override]
-        public function tostring():string{
+        public function __tostring():string{
             return 'Nome:' . $this->nome . ', CPF: ' . $this->cpf . ', Endereço: ' . $this->endereco;
         }
     }   
